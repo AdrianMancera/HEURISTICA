@@ -143,12 +143,12 @@ class Barco():
     def getSolution(self):
 
         longuitud = len(self.problem.getSolutions())
-        with open('output.txt', 'w') as temp_file:
-            temp_file.write("%s" % "NUMERO DE SOLUCIONES: " + str(longuitud) +"\n")
+        with open(mapa[:-4] + "-" + contenedores[:-4] + ".output", 'w') as temp_file:
+            temp_file.write("%s" % "NUMERO DE SOLUCIONES: " + str(longuitud) + "\n")
             for item in self.problem.getSolutions():
                 temp_file.write("%s\n" % item)
 
-        self.file = open('output.txt', 'r')
+        self.file = open(mapa[:-4] + "-" + contenedores[:-4] + ".output", 'r')
 
 #Introducción de parámetros de entrada y paths
 home = sys.argv[1]
@@ -156,6 +156,7 @@ mapa = sys.argv[2]
 contenedores = sys.argv[3]
 pathMap = home + '/' + mapa
 pathContainers = home + '/' + contenedores
+
 
 #Código para el funcionamiento del programa
 obj = Barco()
